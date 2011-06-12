@@ -37,6 +37,7 @@ var createVendingMachine = function() {
 		},
 		press_return : function() {
 			this.coin_return = this.coin_return.concat(coins);
+			this.display = 'INSERT COIN';
 		}
 	};
 

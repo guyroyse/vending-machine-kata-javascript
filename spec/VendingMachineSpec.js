@@ -96,6 +96,12 @@ describe("Jasmine Test Runner", function() {
 				expect(machine.coin_return[1]).toEqual(QUARTER);
 			});
 
+			it("displays INSERT COIN after money is returned", function() {
+				machine.insert_coin(DIME);
+				machine.press_return();
+				expect(machine.display).toEqual('INSERT COIN');
+			});
+
 		});
  
   });
