@@ -66,11 +66,34 @@ describe("Jasmine Test Runner", function() {
 					expect(machine.display).toEqual('INSERT COIN');
 				});
 
-				it("places invalid coins in the coin return", function() {
+				it("places invalid coin in the coin return", function() {
 					machine.insert_coin(PENNY);
 					expect(machine.coin_return[0]).toEqual(PENNY);
 				});
 
+				it("places a second invalid coin in the coin return", function() {
+					machine.insert_coin(PENNY);
+					machine.insert_coin(HALF_DOLLAR);
+					expect(machine.coin_return[1]).toEqual(HALF_DOLLAR);
+				});
+
+			});
+
+		});
+
+		describe("Money Return", function() {
+
+			it("returns inserted coin", function() {
+				machine.insert_coin(DIME);
+				machine.press_return();
+				expect(machine.coin_return[0]).toEqual(DIME);
+			});
+
+			it("returns a second inserted coin", function() {
+				machine.insert_coin(DIME);
+				machine.insert_coin(QUARTER);
+				machine.press_return();
+				expect(machine.coin_return[1]).toEqual(QUARTER);
 			});
 
 		});
